@@ -11,7 +11,26 @@ function Phrase(content) {
 
   // Returns content processed for palindrome testing.
   this.processedContent = function processedContent() {
-    return this.content.toLowerCase();
+    return this.letters().toLowerCase();
+  }
+
+  // this.letters = function letters() {
+  //   let theLetters = [];
+  //   const letterRegex = /[a-z]/i;
+  //   Array.from(this.content).forEach(function(character) {
+  //     if (character.match(letterRegex)) {
+  //       theLetters.push(character);
+  //     }
+  //   });
+  //   return theLetters.join("");
+  // }
+
+  // Returns the letters in the content.
+  // For example:
+  //   new Phrase("Hello, world!").letters() === "Helloworld"
+  this.letters = function letters() {
+    //return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
+    return (this.content.match(/[a-z]/gi) || []).join("");
   }
 
   // Returns true if the phrase is a palindrome, false otherwise.
